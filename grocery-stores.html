@@ -1,0 +1,353 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+        <link rel="stylesheet" href="css/framework7.material.min.css">
+       <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <link href="css/notie.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="uikit.min.css" />
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+        
+         .mdl-layout__drawer-button {
+        margin-left: -100%;
+             display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header"  style="background-color:#d02e86;">
+        <div class="mdl-layout__header-row">
+     <button class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon left" onclick="history.go(-1);" style="margin-left:-60px; top:1px;">
+    <i class="material-icons" >arrow_back</i>
+  </button>
+        
+          <span class="mdl-layout-title" style="margin-left:0px;">Grocery Stores</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+           
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn" style="position:relative; top:1px;">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">About</li>
+            <li class="mdl-menu__item">Contact</li>
+            <li class="mdl-menu__item">Legal information</li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header " >
+          <img src="img/Paysumer+.png" style="background-postion:center; width:80%; position:relative; top:10px; left:10px;" class="">
+          <div class="demo-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">hello@example.com</li>
+              <li class="mdl-menu__item">info@example.com</li>
+              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+        
+            <a class="mdl-navigation__link external" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">trending_up</i>Promotion</a>
+        
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">redeem</i>Specials</a>
+        
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">star_border</i>New Products</a>
+         
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">star_half</i>Discounts</a>
+         
+            <a class="mdl-navigation__link" href="grocery-stores.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shop</i>Grocery Stores</a>
+         
+            <a class="mdl-navigation__link" href="pharmacy-stores.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_pharmacy</i>Pharmacy Stores</a>
+            
+             <a class="mdl-navigation__link" href="restuarant-outlets.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">restaurant</i>Restaurant Outlets</a>
+          
+           
+            <a class="mdl-navigation__link" href="ticket-outlets.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_play</i>Ticket Outlets</a>
+    <br>
+             <br>
+             <br>
+        </nav>
+      </div>
+          
+    <main class="mdl-layout__content mdl-color--grey-100">
+
+         <div class="list-block list-block-search searchbar-found">
+            <ul>
+                <li>
+                <a href="store_A.html" class="item-link item-content">
+                    <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                  <div class="item-inner">
+                    <div class="item-title"><b>Store A</b>
+                   <br> <span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span> </div>
+                  </div>
+                </a>
+                </li>
+                
+                <li>
+                    <a href="index%20-%20Copy.html" class=" item-link item-content">
+                    <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                  <div class="item-inner">
+                    <div class="item-title"><b>Store B</b>
+                   <br> <span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span></div>
+                  </div>
+                    </a>
+                </li>
+                
+                <li>
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                <div class="item-inner">
+                  <div class="item-title"><b>Store C</b>
+                   <br><span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span>
+                    </div>
+                </div>
+              </a>
+            </li>
+                
+                <li>
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                <div class="item-inner">
+                  <div class="item-title"><b>Store D</b>
+                   <br> <span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span> </div>
+                </div>
+              </a>
+            </li>
+                
+                <li>
+                    <a href="#" class=" item-link item-content">
+                    <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                  <div class="item-inner">
+                    <div class="item-title"><b>Store E</b>
+                   <br> <span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span></div>
+                  </div>
+                    </a>
+                </li>
+                
+                <li>
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                <div class="item-inner">
+                  <div class="item-title"><b>Store F</b>
+                   <br><span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span>
+                    </div>
+                </div>
+              </a>
+            </li>
+                
+                <li>
+                    <a href="#" class=" item-link item-content">
+                    <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                  <div class="item-inner">
+                    <div class="item-title"><b>Store G</b>
+                   <br><span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span></div>
+                  </div>
+                    </a>
+                </li>
+                
+                <li>
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                <div class="item-inner">
+                  <div class="item-title"><b>Store H</b>
+                   <br><span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span>
+                    </div>
+                </div>
+              </a>
+            </li>
+                
+                <li>
+                    <a href="#" class=" item-link item-content">
+                    <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></div>
+                  <div class="item-inner">
+                    <div class="item-title"><b>Store I</b>
+                   <br> <span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span></div>
+                  </div>
+                    </a>
+                </li>
+                
+                <li>
+              <a href="#" class="item-link item-content">
+                <div class="item-media"><img src="img/Store-icon.png" style="max-width:40px;"/></i></div>
+                <div class="item-inner">
+                  <div class="item-title"><b>Store J</b>
+                   <br><span class="color-red" style="font-size:13px">OPEN: 8:30 a.m- 5:30 p.m </span>
+                    </div>
+                </div>
+              </a>
+            </li>
+        
+       
+ 
+            </ul>
+        </div>
+      </main>
+          <!-- Bottom Toolbar-->
+        <div class="toolbar" style="position:relative; bottom:0px; height:80px;" >
+          <div class="toolbar-inner" style="background-color:#CFD8DC; ">
+                         <a href="#view-1" data-picker=".picker-user" class="tab-link active open-indicator open-picker" style="text-align:left; margin-left:15px;"><i class="material-icons">person_outline</i></a>
+              
+                         <a href="#view-2" data-picker=".picker-category" class="tab-link active open-indicator open-picker" style="text-align:center;"><i class="material-icons">apps</i></a>
+              
+                        <a href="#view-3" data-picker=".picker-shoppingcart" class="tab-link active open-indicator open-picker" style="text-align:right;"><i class="material-icons" >local_grocery_store</i><span class="material-icons mdl-badge mdl-badge--overlap simpleCart_quantity" data-badge="0" style="; position:relative; right:15px;"></span></a>
+            </div>
+        </div>
+          
+                <!-- Picker user -->
+  <div class="picker-modal picker-user" style="height:100%">
+    <div class="toolbar" style="background-color:#BDBDBD">
+      <div class="toolbar-inner">
+         <div class="left"><a href="#" class="close-picker"><i class="arrow left icon" style="font-size:24px; margin-left:10px;"></i></a></div>
+        <div class="right" style="margin-right:15px;"><h4>User</h4></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block">
+   
+          
+      </div>
+    </div>
+  </div>
+          
+     <!-- Picker category -->
+  <div class="picker-modal picker-category" style="height:100%">
+    <div class="toolbar" style="background-color:#BDBDBD">
+      <div class="toolbar-inner">
+         <div class="left"><a href="#" class="close-picker"><i class="arrow left icon" style="font-size:24px; margin-left:10px;"></i></a></div>
+        <div class="right" style="margin-right:15px;"><h4>Category</h4></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block">
+   
+          
+      </div>
+    </div>
+  </div>
+          
+ <!-- Picker shopping cart -->
+  <div class="picker-modal picker-shoppingcart" style="height:100%">
+    <div class="toolbar"  style="background-color:#BDBDBD">
+      <div class="toolbar-inner">
+         <div class="left" style="margin-left:10px;"><a href="#" class="close-picker"><i class="arrow left icon" style="font-size:24px "></i></a></div>
+        <div class="right" style="margin-right:15px;"><h4>Shopping Cart</h4></div>
+      </div>
+    </div>
+      <div class="picker-modal-inner">
+      <div class="content-block">
+          
+          <!-- create a checkout button -->
+<a class="simpleCart_checkout" href="javascript:;"></a>
+
+<!-- button to empty the cart -->
+<a class="simpleCart_empty" href="javascript:;"></a>
+
+<!-- show the cart -->
+<div class="simpleCart_items"></div>
+
+<!-- cart total (ex. $23.11)-->
+<span>Total</span><div class="simpleCart_total"></div>
+
+<!-- cart quantity (ex. 3) -->
+<span>Cart Quantity</span><div class="simpleCart_quantity"></div>
+
+<!-- tax cost (ex. $1.38) -->
+<span>Process (8.25%)</span><div class="simpleCart_tax"></div>
+
+<!-- shipping (ex. $5.00) -->
+<span>Delivery</span><div  class="simpleCart_shipping"></div>
+
+<!-- grand total, including tax and shipping (ex. $28.49) -->
+<span>Grand Total</span><div class="simpleCart_grandTotal"></div>
+
+
+   
+          
+          
+      </div>
+    </div>
+      </div>
+     
+    
+    <script src="material.js"></script>
+       <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script src="semantic.min.js"></script>
+      <script src="js/script.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+      <script src="jquery.js"></script>
+        <script src="uikit.min.js"></script>
+    
+    <script src="js/notie.js"></script>
+          
+          <script src="js/simpleCart.js"></script>
+           <script src="js/jquery.1.6.1.min.js"></script>
+
+  </body>
+</html>

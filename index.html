@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+     <link rel="stylesheet" href="css/framework7.material.min.css">
+       <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <link href="css/notie.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="uikit.min.css" />    
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+       
+    </style>
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div class="app">
+       <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color-text--white-600" style="background-color:#d02e86;">
+        <div class="mdl-layout__header-row ">
+            <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button"><i class="material-icons" style="color:white; margin-top:13px"></i></div>
+          <span class="mdl-layout-title" style="margin-left:-17px;">Paysumer Express</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+           
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">About</li>
+            <li class="mdl-menu__item">Contact</li>
+            <li class="mdl-menu__item">Legal information</li>
+          </ul>
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--white mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header " >
+          <img src="img/Paysumer+.png" style="background-postion:center; width:80%; position:relative; top:10px; left:10px;" class="">
+          <div class="demo-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">hello@example.com</li>
+              <li class="mdl-menu__item">info@example.com</li>
+              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link uk-animation-slide-left" href="index.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+        
+            <a class="mdl-navigation__link external" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">trending_up</i>Promotion</a>
+        
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">redeem</i>Specials</a>
+        
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">star_border</i>New Products</a>
+         
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">star_half</i>Discounts</a>
+         
+            <a class="mdl-navigation__link uk-animation-slide-left" href="grocery-stores.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shop</i>Grocery Stores</a>
+         
+            <a class="mdl-navigation__link uk-animation-slide-left" href="pharmacy-stores.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_pharmacy</i>Pharmacy Stores</a>
+            
+             <a class="mdl-navigation__link uk-animation-slide-left" href="restuarant-outlets.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">restaurant</i>Restaurant Outlets</a>
+          
+           
+            <a class="mdl-navigation__link uk-animation-slide-left" href="ticket-outlets.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_play</i>Ticket Outlets</a>
+    <br>
+             <br>
+             <br>
+        </nav>
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="ui grid" style="margin:-15px; margin-top:-10px;">
+  <a href="grocery-stores.html" class=" external uk-animation-slide-left">
+    <div class="sixteen wide column">
+    <div class="ui fluid card">
+      <div class="image" style="margin-bottom:-5px;">
+        <img src="img/grocery.jpg" style="width:100%;">
+      </div>
+    <a href="grocery-stores.html" class=" external uk-animation-slide-left">         
+      <div class="content" style="background-color:#F0F4C3;">
+        <a href="grocery-stores.html" class="header external uk-animation-slide-left">Grocery Stores <i class="chevron right icon" style="float:right; magin-top:-5px; size:15px;"></i></a>
+      </div>
+        </a>
+    </div>
+  </div>
+ </a>
+       
+ <a href="pharmacy-stores.html" class="external">
+    <div class="sixteen wide column">
+    <div class="ui fluid card">
+      <div class="image" style="margin-bottom:-5px;">
+        <img src="img/pharmacy.jpg" style="width:100%;">
+      </div>
+    <a href="pharmacy-stores.html" class="external">         
+      <div class="content" style="background-color:#B3E5FC;">
+        <a href="pharmacy-stores.html" class="header external uk-animation-slide-left">Pharmacy Stores <i class="chevron right icon" style="float:right; magin-top:-5px; size:15px;"></i></a>
+      </div>
+        </a>
+    </div>
+  </div>
+ </a>
+       
+       
+<a href="restuarant-outlets.html" class="external uk-animation-slide-left">
+    <div class="sixteen wide column">
+    <div class="ui fluid card">
+      <div class="image" style="margin-bottom:-5px;">
+        <img src="img/restuarant.jpg" style="width:100%; ">
+      </div>
+    <a href="restuarant-outlets.html" class="external uk-animation-slide-left">         
+      <div class="content" style="background-color:#FFCDD2;">
+        <a href="restuarant-outlets.html" class="header external uk-animation-slide-left">Restaurant Outlets <i class="chevron right icon" style="float:right; magin-top:-5px; size:15px;"></i></a>
+      </div>
+        </a>
+    </div>
+  </div>
+ </a>
+       
+<a href="ticket-outlets.html" class="external uk-animation-slide-left">
+    <div class="sixteen wide column">
+    <div class="ui fluid card">
+      <div class="image" style="margin-bottom:-5px;">
+        <img src="img/ticket.jpg" style="width:100%;">
+      </div>
+    <a href="ticket-outlets.html" class="external uk-animation-slide-left">         
+      <div class="content" style="background-color:#CFD8DC;">
+        <a href="ticket-outlets.html" class="header external uk-animation-slide-left">Ticket Outlets <i class="chevron right icon" style="float:right; magin-top:-5px; size:15px;"></i>
+          <!-- Accent-colored raised button with ripple -->
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Button
+</button>
+
+          </a>
+      </div>
+        </a>
+    </div>
+  </div>
+ </a>
+     
+  
+</div>
+      </main>
+          <!-- Bottom Toolbar-->
+        <div class="toolbar" style="position:relative; bottom:0px; height:120px;" >
+          <div class="toolbar-inner" style="background-color:#CFD8DC; ">
+                         <a href="#view-1" data-picker=".picker-user" class="tab-link active open-indicator open-picker" style="text-align:left; margin-left:15px;"><i class="material-icons">person_outline</i></a>
+              
+                         <a href="#view-2" data-picker=".picker-category" class="tab-link active open-indicator open-picker" style="text-align:center;"><i class="material-icons">apps</i></a>
+              
+                        <a href="#view-3" data-picker=".picker-shoppingcart" class="tab-link active open-indicator open-picker" style="text-align:right;"><i class="material-icons" >local_grocery_store</i><span class="material-icons mdl-badge mdl-badge--overlap simpleCart_quantity" data-badge="0" style="margin-left:-0px; position:relative; right:15px;"></span></a>
+            </div>
+        </div>
+          
+                <!-- Picker user -->
+  <div class="picker-modal picker-user" style="height:100%">
+    <div class="toolbar" style="background-color:#BDBDBD">
+      <div class="toolbar-inner">
+         <div class="left"><a href="#" class="close-picker"><i class="arrow left icon" style="font-size:24px; margin-left:10px;"></i></a></div>
+        <div class="right" style="margin-right:15px;"><h4>User</h4></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block">
+   
+          
+      </div>
+    </div>
+  </div>
+          
+     <!-- Picker category -->
+  <div class="picker-modal picker-category" style="height:100%">
+    <div class="toolbar" style="background-color:#BDBDBD">
+      <div class="toolbar-inner">
+         <div class="left"><a href="#" class="close-picker"><i class="arrow left icon" style="font-size:24px; margin-left:10px;"></i></a></div>
+        <div class="right" style="margin-right:15px;"><h4>Category</h4></div>
+      </div>
+    </div>
+    <div class="picker-modal-inner">
+      <div class="content-block">
+   
+          
+      </div>
+    </div>
+  </div>
+          
+ <!-- Picker shopping cart -->
+  <div class="picker-modal picker-shoppingcart" style="height:100%">
+    <div class="toolbar"  style="background-color:#BDBDBD">
+      <div class="toolbar-inner">
+         <div class="left" style="margin-left:10px;"><a href="#" class="close-picker"><i class="arrow left icon" style="font-size:24px "></i></a></div>
+        <div class="right" style="margin-right:15px;"><h4>Shopping Cart</h4></div>
+      </div>
+    </div>
+      <div class="picker-modal-inner">
+      <div class="content-block">
+          
+          <!-- create a checkout button -->
+<a class="simpleCart_checkout" href="javascript:;"></a>
+
+<!-- button to empty the cart -->
+<a class="simpleCart_empty" href="javascript:;"></a>
+
+<!-- show the cart -->
+<div class="simpleCart_items"></div>
+
+<!-- cart total (ex. $23.11)-->
+<span>Total</span><div class="simpleCart_total"></div>
+
+<!-- cart quantity (ex. 3) -->
+<span>Cart Quantity</span><div class="simpleCart_quantity"></div>
+
+<!-- tax cost (ex. $1.38) -->
+<span>Process (8.25%)</span><div class="simpleCart_tax"></div>
+
+<!-- shipping (ex. $5.00) -->
+<span>Delivery</span><div  class="simpleCart_shipping"></div>
+
+<!-- grand total, including tax and shipping (ex. $28.49) -->
+<span>Grand Total</span><div class="simpleCart_grandTotal"></div>
+
+
+   
+          
+          
+      </div>
+    </div>
+      </div>
+    </div>
+           <script src="material.js"></script>
+       <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script src="semantic.min.js"></script>
+      <script src="js/script.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+           <script src="jquery.js"></script>
+        <script src="uikit.min.js"></script>
+    
+    <script src="js/notie.js"></script>
+          
+          <script src="js/simpleCart.js"></script>
+           <script src="js/jquery.1.6.1.min.js"></script>
+
+          <script>
+    // * Notie popup*//
+			
+			notie.setOptions({
+				colorSuccess: '#57BF57',
+				colorWarning: '#D6A14D',
+				colorError: '#E1715B',
+				colorInfo: '#f06292',
+				colorNeutral: '#A0A0A0',
+				colorText: '#FFFFFF',
+				animationDelay: 300,
+				backgroundClickDismiss: true
+			});
+			
+            function success() {
+                notie.alert(1, 'Success!');
+            }
+            
+            function warning() {
+                notie.alert(2, 'Warning<br><b>with</b><br><i>HTML</i><br><u>included.</u>', 2);
+            }
+            
+            function error() {
+                notie.alert(3, 'Error.', 2);
+            }
+            
+            function info() {
+                notie.alert(4, 'One item Added to cart', 2);
+            }
+            
+            function confirm() {
+                notie.confirm('Are you sure you want to do that?<br><b>That\'s a bold move...</b>', 'Yes', 'Cancel', function() {
+                    notie.alert(1, 'Good choice! :D', 2);
+                }, function() {
+					notie.alert(3, 'Aw, why not? :(', 2);
+				});
+            }
+            
+            function input() {
+				notie.input({
+					type: 'text',
+					placeholder: 'name@example.com',
+					prefilledValue: ''
+				}, 'Please enter your email address:', 'Submit', 'Cancel', function(valueEntered) {
+                    notie.alert(1, 'You entered: ' + valueEntered, 2);
+                }, function(valueEntered) {
+					notie.alert(3, 'You cancelled with this value: ' + valueEntered, 2);
+				});
+            }
+            
+            function select() {
+				notie.select('Demo item #1, owner: Jane Smith',
+				[
+					{ title: 'Share' },
+					{ title: 'Open', color: '#57BF57' },
+				 	{ title: 'Edit', type: 2 },
+					{ title: 'Delete', type: 3 }
+				],
+				function() {
+					notie.alert(1, 'Share item!', 3);
+				}, function() {
+					notie.alert(1, 'Open item!', 3);
+				}, function() {
+					notie.alert(2, 'Edit item!', 3);
+				}, function() {
+					notie.alert(3, 'Delete item!', 3);
+				});
+			}
+            
+		</script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>

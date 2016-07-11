@@ -1,0 +1,39 @@
+.img-center {margin-left: 30%;
+            }
+
+
+   
+.demo-card-header-pic .card-header {
+    height: 65vw;
+    background-size: cover;
+    background-position: center;
+    }
+
+
+.b-groove {outline-style:groove;
+           padding:2px;
+           background-color:white;
+            font-size: 15px;}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #d02d86;
+    
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    
+}
+
+a.li-pos {margin-left: 5px;
+         position: relative;
+         top:5px;
+         text-decoration:none;}
+
+.popover {
+      width: 200px;
+    
+    }
